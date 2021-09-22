@@ -16,7 +16,8 @@ const MeetingSchema = Schema(
     },
     users: {
       type: [Schema.Types.ObjectId],
-      required: true
+      required: true,
+      ref: "User"
     },
     duration: {
       type: Number,
