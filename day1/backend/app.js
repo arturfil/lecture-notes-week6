@@ -12,7 +12,7 @@ mongoose.connect('mongodb://localhost/reservespot')
 // general middlwares
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
-app.use(cors())
+app.use(cors());
 
 // routes
 app.use('/api/auth', require('./routes/user'));

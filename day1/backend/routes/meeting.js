@@ -9,11 +9,11 @@ const {
 const { validateJwt } = require("../middlewares/validateJwt");
 const router = express.Router();
 
-router.get('/', getAllMeetings);
+router.get('/', getAllMeetings); // getAllMeetings // get_all_meetings // get-all-meetings
 router.get('/meeting/:id', getMeetingById);
-router.post('/meeting', createMeeting);
-router.put('/meeting/:id', updateMeeting);
-router.delete('/meeting/:id', deleteMeeting)
+router.post('/meeting', validateJwt, createMeeting);
+router.put('/meeting/:id',validateJwt, updateMeeting);
+router.delete('/meeting/:id', validateJwt, deleteMeeting)
 
 // MVC
 // MODEL      => MongooseSchemas
