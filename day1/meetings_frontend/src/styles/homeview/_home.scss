@@ -1,3 +1,11 @@
 .home {
-  background-color: $primary_color;
+  text-align: center;
+
+  h4 {
+    color: $primary_color
+  }
+
+  :hover {
+    color: green;
+  }
 }

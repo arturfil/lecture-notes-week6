@@ -1,27 +1,30 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import SideNavBar from './components/SideNavBar';
+import ErrorView from './views/ErrorView';
+
+// component imports
+import HomeView from './views/HomeView';
+import LoginView from './views/LoginView';
 
 function App() {
-  const [meetings, setMeetings] = useState([]);
-  const apiUrl = 'http://localhost:5000/api'; 
-
-  useEffect(() => {
-    getMeetings();
-  }, [])
-
-  const getMeetings = async () => {
-    const response = await axios.get(`${apiUrl}/meetings`);
-    setMeetings(response.data);
-  }
-
   return (
-    <>
-      <h2>Meetings</h2>
-      {meetings && meetings.map(meeting => (
-        <h4 key={meeting._id}>{meeting.concept}</h4>
-      ))}
-    </>
-  );
+    <BrowserRouter>
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col-3 navbar-container">
+          <SideNavBar/>
+        </div>
+        <div className="col-9">
+          <Switch>
+            <Route exact path="/" component={HomeView} />
+            <Route exact path="/login" component={LoginView} />
+            <Route component={ErrorView} />
+          </Switch>
+        </div>
+      </div>
+    </div>
+    </BrowserRouter>
+  )
 }
 
 export default App;
