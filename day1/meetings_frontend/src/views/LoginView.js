@@ -1,7 +1,8 @@
-import { useState } from 'react';
-import axios from 'axios';
+import { useState, useContext } from 'react';
+import { AuthContext } from '../context/AuthContext';
 
 const LoginView = () => {
+  const { handleLogin } = useContext(AuthContext);
   const [user, setUser] = useState(
     {
       email: '',
@@ -16,11 +17,9 @@ const LoginView = () => {
     })
   }
 
-  const handleSumbit = async (event) => {
-    event.preventDefault();
-    const response = await axios.post('http://localhost:5000/api/auth/login', user);
-    const { token } = response.data;
-    localStorage.setItem('reservespot', JSON.stringify(token) );
+  const submitLogin = async (e) => {
+    e.preventDefault();
+    await handleLogin(user);
     setUser({
       email: '',
       password: ''
@@ -49,7 +48,7 @@ const LoginView = () => {
           name="password" 
         />
         <button
-          onClick={handleSumbit} 
+          onClick={submitLogin} 
           className="btn btn-primary form-control">
           Login
         </button>

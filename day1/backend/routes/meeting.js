@@ -11,7 +11,7 @@ const {
 
 const { validateFields } = require("../middlewares/validateFields");
 // jwt middleware
-const { validateJwt } = require("../middlewares/validateJwt");
+const { validateJwt, isAdmin, hasRole } = require("../middlewares/validateJwt");
 const router = express.Router();
 
 router.get("/", getAllMeetings); // getAllMeetings // get_all_meetings // get-all-meetings

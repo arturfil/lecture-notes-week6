@@ -7,6 +7,7 @@ export const MeetingsContext = createContext({});
 // Context Function (like all order components)
 const MeetingsProvider = ({children}) => {
   const [meetings, setMeetings] = useState([]);
+  const [meeting, setMeeting] = useState({});
   const apiUrl = 'http://localhost:5000/api'
   
   // functions
@@ -16,11 +17,13 @@ const MeetingsProvider = ({children}) => {
 
   const getMeetings = async () => {
     const response = await axios.get(`${apiUrl}/meetings`);
+    setMeetings(response.data);
     return response.data
   }
 
   const getMeetingById = async (id) => {
     const response = await axios.get(`${apiUrl}/meetigs/meeting/${id}`);
+    setMeeting(response.data);
     return response.data;
   }
 

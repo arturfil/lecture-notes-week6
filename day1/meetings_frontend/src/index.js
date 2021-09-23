@@ -5,10 +5,16 @@ import App2 from './App2';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/styles.scss';
+import MeetingsProvider from './context/MeetingsContext';
+import AuthProvider from './context/AuthContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App/>
+    <MeetingsProvider>
+      <AuthProvider>
+        <App/>
+      </AuthProvider>
+    </MeetingsProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
