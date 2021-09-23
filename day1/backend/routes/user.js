@@ -18,12 +18,7 @@ router.post('/signup', [
   validateFields
 ] ,userSignUp);
 
-/* Login
-  - check that emails exists
-  - if that check passes
-    - check that the req.body.password === User.password
-  - if that passes then we return a JWT (a soup of letters);
-*/
+// Login
 router.post('/login', userLogin)
 
 module.exports = router;

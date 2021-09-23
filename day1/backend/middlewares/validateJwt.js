@@ -8,10 +8,10 @@ const validateJwt = (req, res, next) => {
   try {
     const { uid } = jwt.verify(token, 'aljsfdkurwieoqlksdajoiqw824338923');
     req.uid = uid;
+    next();
   } catch (error) {
     res.status(401).json({message: "Invalid token"});
   }
-  next();
 }
 
 module.exports = {
