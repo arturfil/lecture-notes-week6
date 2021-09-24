@@ -30,10 +30,12 @@ const AuthProvider = ({children}) => {
     const { token, ...user } = response.data;
     setUser(user);
     localStorage.setItem('reservespot', JSON.stringify(token) );
+    alert('Successful Login')
   }
 
   const logOut = async () => {
     await localStorage.removeItem('reservespot');
+    alert('Succesful Logout')
   }
 
   const getUserInfo = () => {

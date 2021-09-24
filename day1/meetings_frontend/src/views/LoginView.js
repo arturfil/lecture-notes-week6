@@ -29,7 +29,7 @@ const LoginView = () => {
   return (
     <div className="container mt-5">
 
-      <form className="authForm">
+      <form className="form">
         <h2>Login</h2>
         <input
           value={user.email}

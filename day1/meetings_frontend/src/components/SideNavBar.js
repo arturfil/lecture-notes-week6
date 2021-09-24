@@ -22,10 +22,14 @@ const SideNavBar = () => {
         </li>
         
         { loggedIn ? (
-          <li onClick={logOut}>
-            Log Out
-          </li>
-
+          <>
+            <li>
+              <Link to="/addmeeting">Add Meeting</Link>
+            </li>
+            <li onClick={logOut}>
+              Log Out
+            </li>
+          </>
         ) : (
           <li>
             <Link to="/login">Login</Link>

@@ -1,10 +1,11 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import SideNavBar from './components/SideNavBar';
-import ErrorView from './views/ErrorView';
 
 // component imports
-import HomeView from './views/HomeView';
-import LoginView from './views/LoginView';
+import AddMeetingView from './views/AddMeetingView';
+import HomeView       from './views/HomeView';
+import LoginView      from './views/LoginView';
+import ErrorView      from './views/ErrorView';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={HomeView} />
             <Route exact path="/login" component={LoginView} />
+            <Route exact path="/addmeeting" component={AddMeetingView} />
             <Route component={ErrorView} />
           </Switch>
         </div>
