@@ -1,5 +1,6 @@
 import { useState, useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
+import useForm from '../hooks/useForm';
 
 const LoginView = () => {
   const { handleLogin } = useContext(AuthContext);
@@ -17,8 +18,8 @@ const LoginView = () => {
     })
   }
 
-  const submitLogin = async (e) => {
-    e.preventDefault();
+  const submitLogin = async (event) => {
+    event.preventDefault();
     await handleLogin(user);
     setUser({
       email: '',
